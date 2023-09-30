@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for nota in notas %}
+            <li>{{ nota.materia.nombre }} - {{ nota.estudiante_carnet }} - {{ nota.calificacion }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

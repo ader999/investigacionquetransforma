@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mi Proyecto</title>
+    <!-- Importante para cargar los archivos estáticos como imágenes, archivos CSS, JS -->
+    <!-- Agregar Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- Agregar Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Estilo para el contenedor principal */
+        .container-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Cambia min-height a 100vh para ocupar toda la pantalla */
+        }
+
+        /* Estilo para el contenido principal */
+        .main-content {
+            flex-grow: 1;
+        }
+
+        /* Estilo para el footer */
+        #page-footer {
+        background-color: #447555;
+        color: white;
+        padding: 10px 0;
+        margin-top: 80px;
+}
+
+}
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- para que se vea bien en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <header>
+        <!-- Barra de navegación o encabezado común -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'inicio' %}">CONTROL DE NOTAS UML JALAPA</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">
+                                <i class="fa fa-home fa-lg"></i> <span class="fs-4">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'acerca_de' %}">
+                                <i class="fa fa-info-circle fa-lg"></i> <span class="fs-4">Acerca De</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="{% url 'blog_app' %}">
+                                <i class="fa fa-envelope fa-lg"></i> <span class="fs-4">Blog</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenedor principal con flexbox -->
+    <div class="container-wrapper">
+        <!-- Contenido principal de tu página -->
+        <div class="main-content">
+            <!-- Tu contenido principal -->
+            <main>
+                <!-- Contenido principal de tu página -->
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center" id="page-footer">
+        <div class="container">
+            <p class="font-weight-bold">Contacto: aderjasmirzeasrocha@gmail.com - Teléfono: 89278365</p>
+            <p class="font-weight-bold">Sígueme en las redes sociales</p>
+            <div class="container mt-5">
+                <div class="d-inline mx-2">
+                    <a href="https://twitter.com/Over_Ader" target="_blank" class="btn btn-info btn-lg">
+                        <i class="fab fa-twitter me-2"></i> Twitter
+                    </a>
+                </div>
+                <div class="d-inline mx-2">
+                    <a href="https://www.linkedin.com/in/tu_perfil" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fab fa-linkedin me-2"></i> LinkedIn
+                    </a>
+                </div>
+                <div class="d-inline mx-2">
+                    <a href="https://github.com/tu_usuario" target="_blank" class="btn btn-secondary btn-lg">
+                        <i class="fab fa-github me-2"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <p class="font-weight-bold">&copy; {{ year }} Mi Proyecto. Todos los derechos reservados a Ader Yasmir Zeas Rocha.</p>
+        </div>
+    </footer>
+
+    <!-- scripts y enlaces a JavaScript -->
+    <!-- Agregar script Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Agregar script Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+
+</html>

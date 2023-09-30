@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>perfil</title>
+    <style>
+      .custom-margin {
+    margin-top: 80px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="container custom-margin">
+           <div class="container mt-5">
+            {% if notas %}
+            <h1>Notas del Estudiante: <h2>{{ notas.0.estudiante_carnet }}</h2></h1>
+
+            {% endif %}
+
+            <div class="container mt-5">
+                <a href="{% url 'generar_pdf' %}" target="_blank" class="btn btn-danger btn-lg">
+                    <i class="fas fa-file-pdf me-2"></i> Descargar
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th colspan="3" class="text-center">{{ notas.0.estudiante_carnet }}</th>
+                </tr>
+                <tr>
+                    <th>N</th>
+                    <th>Materia</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nota in notas %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ nota.materia.nombre }}</td>
+                    <td>{{ nota.calificacion }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+        <div class="container mt-5">
+            {% for estudiante in estudiantes %}
+                <div class="progress" style="height: 30px;">
+                    {% with promedio=estudiante.promedio_calificaciones|default:0 %}
+
+                    <div class="progress-bar" role="progressbar" style="width: {{ promedio }}%;" aria-valuenow="{{ promedio }}" aria-valuemin="0" aria-valuemax="100">Promedio: {{ promedio }}%</div>
+                    {% endwith %}
+                </div>
+            {% endfor %}
+        </div>
+
+
+
+
+
+
+</body>
+</html>

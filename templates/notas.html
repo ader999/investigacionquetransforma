@@ -1,0 +1,26 @@
+<!-- acerca_de.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacto</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+   <!-- {% if notas %}
+        <h2>Estudiante: {{ notas.0.estudiante_carnet }}</h2>
+        <ul>
+            {% for nota in notas %}
+                <li>Materia: {{ forloop.counter }}: {{ nota.materia.nombre }}</li>
+                <li>Calificación: {{ nota.calificacion }}</li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay notas disponibles.</p>
+    {% endif %} -->
+    {% include 'perfil.html' %}
+{% endblock %}
+</body>
+</html>

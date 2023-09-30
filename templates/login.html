@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+     <style>
+        body {
+            background-color: #f0f0f0; /* Color de fondo */
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 150px auto;
+            padding: 20px;
+            background-color: #fff; /* Color de fondo del contenedor */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+        h1 {
+            text-align: center;
+        }
+
+        /* Estilos para los mensajes de error */
+        .messages {
+            list-style-type: none;
+            padding: 0;
+            margin: 7px 0 0 0;
+            font-size: 16px;
+        }
+
+        .messages li {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ff0000; /* Borde rojo */
+            background-color: #ffebeb; /* Fondo rojo claro */
+            color: #ff0000; /* Texto rojo */
+        }
+
+
+
+    </style>
+
+
+
+
+    <div class="container">
+        <div class="login-container"> <!-- Encapsula el formulario -->
+            <h1>Inicio de sesión</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Código Carnet</label>
+                    <input type="text" class="form-control" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-3">Iniciar sesión</button>
+            </form>
+
+           <!-- Mostrar mensajes de error aquí -->
+            {% if messages %}
+                <div class="alert-container">
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+</body>
+</html>

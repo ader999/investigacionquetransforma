@@ -1,0 +1,42 @@
+<!-- menu.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Aplicación</title>
+    <style>
+        #Info{
+        margin-top: 80px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    {% load static %}
+    <div class="container mt-5" >
+        <div class="row justify-content-center align-items-center vh-120">
+            <div class="col-md-6 text-center" id="Info">
+                <img src="{% static 'img/logo.png' %}" alt="10" class="img-fluid" style="max-width: 200px; max-height: 200px;">
+                <h1 class="display-4">EXPLORA TUS NOTAS</h1>
+                <p class="lead">Bienvenido al sistema de gestión de notas de la Universidad Martín Lutero. Aquí podrás acceder y explorar tus calificaciones de manera sencilla.</p>
+                <p><a href="{% url 'login' %}" class="btn btn-primary">Descubre tu progreso hacia tu profesión</a></p>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+
+   
+    
+    
+</body>
+</html>
